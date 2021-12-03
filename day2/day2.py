@@ -1,6 +1,7 @@
-import sys
-file = open(sys.argv[1], 'r')
-lines = [l.strip().split() for l in file.readlines()]
+import os, sys
+
+with open(os.path.join(sys.path[0],'input.txt'), 'r') as file:
+    lines = [l.strip().split() for l in file.readlines()]
 
 horizontal = 0
 vertical = 0

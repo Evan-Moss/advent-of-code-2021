@@ -1,7 +1,8 @@
 import pandas as pd
+import os, sys
 
-file = open('input.txt', 'r')
-lines = [list(l.strip()) for l in file.readlines()]
+with open(os.path.join(sys.path[0],'input.txt'), 'r') as file:
+    lines = [list(l.strip()) for l in file.readlines()]
 
 df = pd.DataFrame(lines)
 
