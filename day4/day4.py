@@ -1,4 +1,4 @@
-import os, sys
+import os, sys 
 import numpy as np
 
 # Pre-processing
@@ -35,20 +35,23 @@ def check_winner(board_state):
             return True
     return False
 
-def calculate_answer(board, board_state, number):
+def caclulate_answer(board, board_state, number):
     answer = np.sum(board[np.where(board_state == 0)]) * number
-    print('Answer: {}'.format(answer))
+    return answer
 
+winner_nos = set()
+winners = []
 def update_boards_state(boards, boards_state, number):
     for i in range(len(boards)):
         board = boards[i]
         state = boards_state[i]
         update_board_state(board, state, number)
-        if check_winner(state):
-            print("BINGO!")
-            calculate_answer(board, state, number)
-            return check_winner(state)
+        if check_winner(state) and (i not in winner_nos):
+            winner_nos.add(i)
+            winners.append(caclulate_answer(board, state, number))
 
 for call in bingo_input:
-    if update_boards_state(boards, boards_state, call):
-        break
+    update_boards_state(boards, boards_state, call)
+
+print(winners[0])
+print(winners[-1])
