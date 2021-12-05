@@ -6,12 +6,10 @@ with open(os.path.join(sys.path[0],'input.txt'), 'r') as file:
     lines = [l.strip().split(' ') for l in file.readlines() if l.strip() != '']
     
 bingo_input = [int(b) for b in lines.pop(0)[0].split(',')]
-#print(bingo_index)
 
 for i in range(len(lines)):
     lines[i] = [int(x) for x in lines[i] if x != '']
     assert(len(lines[i]) == 5)
-    # print(lines[i])
 
 def lines_to_boards(lines):
     boards = []
@@ -19,7 +17,6 @@ def lines_to_boards(lines):
         board = np.array(lines[i:i+5])
         boards.append(board)
     return boards
-
     
 boards = lines_to_boards(lines)
 boards_state = [np.empty([5,5]) for n in range(len(boards))]
