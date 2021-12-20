@@ -2,7 +2,7 @@ import os, sys
 import numpy as np
 
 # Pre-processing
-with open(os.path.join(sys.path[0],'input.txt'), 'r') as file:
+with open(os.path.join(sys.path[0],'inputtest.txt'), 'r') as file:
     lines = file.readlines()
     for l in range(len(lines)):
         lines[l]  = [[int(y) for y in x.strip().split(',')] for x in lines[l].strip().split('->')]
@@ -22,7 +22,7 @@ class Line:
     def __init__(self, file_line):
         self.coords1 = Coord(file_line[0])
         self.coords2 = Coord(file_line[1])
-        self.is_straight = True if (self.coords1.x == self.coords2.x or self.coords1.y == self.coords2.y) else False
+        self.is_straight = self.coords1.x == self.coords2.x or self.coords1.y == self.coords2.y
         self.coords_list = self.calculate_points()
     
     def calculate_points(self):
@@ -50,6 +50,10 @@ class Line:
             ys = range(big_y, small_y-1,-1)
 
         counter = 0
+        
+        #!!!!!!!!!!!!!
+        print(list(zip(self.ranger(self.coords1.x, self.coords2.x), ys)))
+
         for x in self.ranger(self.coords1.x, self.coords2.x):
             coords_list.append(Coord([x, ys[counter]]))
             counter+=1
