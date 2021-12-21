@@ -1,5 +1,6 @@
+import os, sys
 import numpy as np
-with open('input.txt', 'r') as file:
+with open(os.path.join(sys.path[0],'input.txt'), 'r') as file:
     input_list = np.array([np.array([int(x) for x in list(l.strip())]) for l in file.readlines()])
 
 def get_adjacent_vals(x, y):

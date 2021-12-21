@@ -1,7 +1,8 @@
 # This is just minimising a function, could probably be achieved with scipy
+import os, sys
 import numpy as np 
 
-with open('input.txt', 'r') as file:
+with open(os.path.join(sys.path[0],'input.txt'), 'r') as file:
     input_list = [int(f) for f in file.readline().strip().split(',')]
 
 def calculate_dist(point, part=1):

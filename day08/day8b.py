@@ -1,4 +1,5 @@
-with open('input.txt', 'r') as file:
+import os, sys
+with open(os.path.join(sys.path[0],'input.txt'), 'r') as file:
     f = file.readlines()
     input_list = [[set(y) for y in x.strip().split('|')[0].strip().split()] for x in f]
     output_list = [[set(y) for y in x.strip().split('|')[1].strip().split()] for x in f]

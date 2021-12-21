@@ -1,4 +1,6 @@
-with open('input.txt', 'r') as file:
+import os, sys
+
+with open(os.path.join(sys.path[0],'input.txt'), 'r') as file:
     lines = [[int(x) for x in list(f.strip())] for f in file.readlines()]
 
 class Point:

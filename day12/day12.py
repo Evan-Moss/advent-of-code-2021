@@ -26,8 +26,7 @@ def other_small_caves_visited_once(path):
     for p in path:
         if p.islower():
             small_counts.append(path.count(p))
-    return all(s == 1 for s in small_counts)
-            
+    return all(s == 1 for s in small_counts)          
 
 def can_visit(node, path, part=1):
     if part == 1:
@@ -37,8 +36,7 @@ def can_visit(node, path, part=1):
     if part == 2:
         if (not other_small_caves_visited_once(path) and (node in path) and node.islower()) or node == 'start':
             return False
-        return True
-        
+        return True  
 
 paths = []
 

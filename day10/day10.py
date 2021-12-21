@@ -1,4 +1,5 @@
-with open('input.txt', 'r') as file:
+import os, sys
+with open(os.path.join(sys.path[0],'input.txt'), 'r') as file:
     input_list = [list(l.strip()) for l in file.readlines()]
 
 opn = set(['<', '{', '(', '['])
